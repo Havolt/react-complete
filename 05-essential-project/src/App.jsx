@@ -1,6 +1,14 @@
+import InvHeader from './components/InvHeader';
+import InvInput from './components/InvInput';
+import InvResult from './components/InvResult';
+
 function App() {
   return (
-    <h1>React Investment Calculator</h1>
+    <div className="app">
+      <InvHeader />
+      <InvInput />
+      <InvResult />
+    </div>
   )
 }
 
