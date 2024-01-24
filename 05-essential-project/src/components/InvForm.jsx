@@ -4,20 +4,25 @@ import InvInput from './InvInput'
 
 function InvForm() {
   return (
-    <div>
+    <form>
       <InvInput
-        inputLabel="Initial Investment" 
+        inputLabel="Initial Investment"
+        inputType="text"
+        inputName="initial-investment"
       />
       <InvInput
-        inputLabel="Annual Investment"  
+        inputLabel="Annual Investment"
+        inputName="annual-investment"
       />
       <InvInput
-        inputLabel="Expected Return"  
+        inputLabel="Expected Return"
+        inputName="expected-return"
       />
       <InvInput
-        inputLabel="Duration"  
+        inputLabel="Duration"
+        inputName="duration"
       />
-    </div>
+    </form>
   )
 }
 

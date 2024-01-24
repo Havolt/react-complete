@@ -1,6 +1,6 @@
 import React from 'react'
 
-function InvInput({inputType = 'text', inputName, inputLabel}) {
+function InvInput({inputType = 'number', inputName, inputLabel}) {
   return (
     <div>
         <label htmlFor={inputName}>{inputLabel}</label>
