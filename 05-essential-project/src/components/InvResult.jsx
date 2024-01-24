@@ -2,7 +2,7 @@ import React from 'react'
 
 function InvResult() {
   return (
-    <div>InvResult</div>
+    <div></div>
   )
 }
 

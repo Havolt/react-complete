@@ -1,8 +1,11 @@
 import React from 'react'
 
-function InvInput() {
+function InvInput({inputType = 'text', inputName, inputLabel}) {
   return (
-    <div>InvInput</div>
+    <div>
+        <label htmlFor={inputName}>{inputLabel}</label>
+        <input type={inputType} name={inputName} />
+    </div>
   )
 }
 
