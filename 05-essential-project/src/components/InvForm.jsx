@@ -4,7 +4,7 @@ import InvInput from './InvInput'
 
 function InvForm() {
   return (
-    <form>
+    <form className="form">
       <InvInput
         inputLabel="Initial Investment"
         inputType="text"
