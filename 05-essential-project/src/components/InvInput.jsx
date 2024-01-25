@@ -2,7 +2,7 @@ import React from 'react'
 
 function InvInput({inputType = 'number', inputName, inputLabel}) {
   return (
-    <div className="input-section">
+    <div>
         <label htmlFor={inputName}>{inputLabel}</label>
         <input type={inputType} name={inputName} />
     </div>
