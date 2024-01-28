@@ -14,8 +14,6 @@ function App() {
 
   const investmentData = calculateInvestmentResults({initialInvestment, annualInvestment, expectedReturn, duration})
 
-  console.log(investmentData)
-
   const updateinitialInvestment = (newValue) => {
     setInitialInvestment(newValue)
   }
@@ -41,7 +39,11 @@ function App() {
         updateReturn={updateExpectedReturn}
         updateDuration={updateDuration}
       />
-      <InvResult />
+      <InvResult
+        investmentData={investmentData}
+        initialInvestment={initialInvestment}
+        annualInvestment={annualInvestment}
+      />
     </div>
   )
 }

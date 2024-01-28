@@ -1,7 +1,10 @@
 import React from 'react'
 import InvResultRow from './InvResultRow'
 
-function InvResult({investmentData}) {
+function InvResult({ investmentData, initialInvestment, annualInvestment }) {
+
+  console.log(investmentData)
+
   return (
     <table id="result">
       <thead>
@@ -14,7 +17,15 @@ function InvResult({investmentData}) {
         </tr>
       </thead>
       <tbody>
-        <InvResultRow />
+        { investmentData.map(data => {
+          return <InvResultRow
+            investment={data}
+            initialInvestment={initialInvestment}
+            annualInvestment={annualInvestment}
+            key={data.year} 
+          />
+        })}
+        
       </tbody>
     </table>
   )
