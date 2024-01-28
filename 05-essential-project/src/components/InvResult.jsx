@@ -3,7 +3,10 @@ import InvResultRow from './InvResultRow'
 
 function InvResult({ investmentData, initialInvestment, annualInvestment }) {
 
+  const interestPerYear = investmentData.map(data => data.interest)
+
   console.log(investmentData)
+  console.log(interestPerYear)
 
   return (
     <table id="result">
@@ -22,7 +25,8 @@ function InvResult({ investmentData, initialInvestment, annualInvestment }) {
             investment={data}
             initialInvestment={initialInvestment}
             annualInvestment={annualInvestment}
-            key={data.year} 
+            totalInterest={interestPerYear.slice(0, data.year).reduce((partial, a) => partial + a, 0)}
+            key={data.year}
           />
         })}
         
