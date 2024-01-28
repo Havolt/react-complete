@@ -4,19 +4,13 @@ import InvResultRow from './InvResultRow'
 function InvResult({ investmentData, initialInvestment, annualInvestment }) {
 
   const interestPerYear = investmentData.map(data => data.interest)
-
-  console.log(investmentData)
-  console.log(interestPerYear)
+  const tableHeaders = ['Year', 'Investment Value', 'Interest (Year)', 'Total Interest', 'Invested Capital']
 
   return (
     <table id="result">
       <thead>
         <tr>
-          <th>Year</th>
-          <th>Investment Value</th>
-          <th>Interest (Year)</th>
-          <th>Total Interest</th>
-          <th>Invested Capital</th>
+          { tableHeaders.map( header => <th key={header}>{header}</th> )}
         </tr>
       </thead>
       <tbody>
@@ -29,7 +23,6 @@ function InvResult({ investmentData, initialInvestment, annualInvestment }) {
             key={data.year}
           />
         })}
-        
       </tbody>
     </table>
   )
