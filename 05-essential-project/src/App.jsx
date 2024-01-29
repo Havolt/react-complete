@@ -7,9 +7,9 @@ import { calculateInvestmentResults } from './util/investment'
 
 function App() {
 
-  const [initialInvestment, setInitialInvestment] = useState(0);
-  const [annualInvestment, setAnnualInvestment] = useState(0);
-  const [expectedReturn, setExpectedReturn] = useState(0);
+  const [initialInvestment, setInitialInvestment] = useState(10000);
+  const [annualInvestment, setAnnualInvestment] = useState(600);
+  const [expectedReturn, setExpectedReturn] = useState(5);
   const [duration, setDuration] = useState(0);
 
   const investmentData = calculateInvestmentResults({initialInvestment, annualInvestment, expectedReturn, duration})
@@ -38,6 +38,10 @@ function App() {
         updateAnnual={updateAnnualInvestment}
         updateReturn={updateExpectedReturn}
         updateDuration={updateDuration}
+        initialInvestment={initialInvestment}
+        annualInvestment={annualInvestment}
+        expectedReturn={expectedReturn}
+        duration={duration}
       />
       <InvResult
         investmentData={investmentData}
