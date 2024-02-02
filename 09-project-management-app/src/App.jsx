@@ -1,7 +1,16 @@
+import { useState } from 'react';
+
+import Dashboard from './components/Dashboard'
+import Main from './components/Main'
+
 function App() {
+
+  const [projects, setProjects] = useState(['test']);
+
   return (
     <>
-      <h1 className="my-8 text-center text-5xl font-bold">Hello World</h1>
+      <Dashboard projects={projects} />
+      <Main />
     </>
   );
 }
