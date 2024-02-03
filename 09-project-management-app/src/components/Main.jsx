@@ -6,12 +6,12 @@ import ProjectInfo from './ProjectInfo'
 
 import { PAGE_TYPES } from '../utils/constants'
 
-function Main({currentPage}) {
+function Main({currentPage, updatePage}) {
 
   return (
     <div>
         { currentPage === PAGE_TYPES.DEFAULT && <ProjectDefault /> }
-        { currentPage === PAGE_TYPES.PROJECT_CREATE && <ProjectCreate /> }
+        { currentPage === PAGE_TYPES.PROJECT_CREATE && <ProjectCreate updatePage={updatePage} /> }
         { currentPage === PAGE_TYPES.PROJECT_INFO && <ProjectInfo /> }
     </div>
   )

@@ -17,10 +17,10 @@ function App() {
   }
 
   return (
-    <>
+    <div className='flex gap-10'>
       <Dashboard updatePage={updatePage} projects={projects} />
-      <Main currentPage={currentPage} />
-    </>
+      <Main currentPage={currentPage} updatePage={updatePage} />
+    </div>
   );
 }
 
