@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
 import Dashboard from './components/Dashboard'
 import Main from './components/Main'
@@ -10,9 +10,15 @@ function App() {
   const [projects, setProjects] = useState(['test']);
   const [currentPage, setCurrentPage] = useState(PAGE_TYPES.DEFAULT)
 
+  const updatePage = (page) => {
+    if(PAGE_TYPES[page]) {
+      setCurrentPage(page);
+    }
+  }
+
   return (
     <>
-      <Dashboard projects={projects} />
+      <Dashboard updatePage={updatePage} projects={projects} />
       <Main currentPage={currentPage} />
     </>
   );
