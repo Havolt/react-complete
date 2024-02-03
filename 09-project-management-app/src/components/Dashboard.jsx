@@ -13,7 +13,7 @@ function Dashboard({ projects, updatePage }) {
         <div>YOUR PROJECTS</div>
         <button onClick={handleAddProject}>+ Add Project</button>
         <ul>
-            { projects.map(project => <li key={project}>{project}</li>)}
+            { projects.map(project => <li key={project.title}>{project.title}</li>)}
         </ul>
     </aside>
   )

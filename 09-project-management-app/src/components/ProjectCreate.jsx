@@ -1,17 +1,25 @@
-import React from 'react'
+import { useRef } from 'react'
+
 
 import { PAGE_TYPES } from '../utils/constants';
 
 function CreateProject({updatePage}) {
 
+  const dateRef = useRef();
+
   const handleCancel = () => {
     updatePage(PAGE_TYPES.DEFAULT);
   }
 
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    console.log(dateRef.current.value);
+  }
+
   return (
-    <form className='flex flex-col'>
+    <form onSubmit={handleSubmit} className='flex flex-col'>
       <button onClick={handleCancel}>Cancel</button>
-      <button>Save</button>
+      <button type="submit">Save</button>
 
       <label htmlFor="title">Title</label>
       <input type="text" name="title" id="title" />
@@ -20,7 +28,7 @@ function CreateProject({updatePage}) {
       <textarea name="description" id="description" cols="30" rows="10"></textarea>
 
       <label htmlFor="due-date">DUE DATE</label>
-      <input type="time" name="due-date" id="" />
+      <input type="datetime-local" name="due-date" ref={dateRef} />
     </form>
   )
 }
