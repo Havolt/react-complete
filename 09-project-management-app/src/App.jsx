@@ -23,10 +23,21 @@ function App() {
     }
   }
 
+  const saveProject = (newProject) => {
+    setProjects((oldProjects) => [...oldProjects, newProject]);
+  }
+
   return (
     <div className='flex gap-10'>
-      <Dashboard updatePage={updatePage} projects={projects} />
-      <Main currentPage={currentPage} updatePage={updatePage} />
+      <Dashboard 
+        updatePage={updatePage} 
+        projects={projects} 
+      />
+      <Main 
+        currentPage={currentPage} 
+        updatePage={updatePage} 
+        saveProject={saveProject} 
+      />
     </div>
   );
 }
