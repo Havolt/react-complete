@@ -14,13 +14,18 @@ const TEST_PROJECT = {
 
 function App() {
 
-  const [projects, setProjects] = useState([TEST_PROJECT]);
+  const [projects, setProjects] = useState([TEST_PROJECT])
   const [currentPage, setCurrentPage] = useState(PAGE_TYPES.DEFAULT)
+  const [selectedPage, setSelectedPage] = useState(null)
 
   const updatePage = (page) => {
     if(PAGE_TYPES[page]) {
       setCurrentPage(page);
     }
+  }
+
+  const updateSelectedProject = (position) => {
+    setSelectedPage(position)
   }
 
   const saveProject = (newProject) => {
@@ -29,14 +34,16 @@ function App() {
 
   return (
     <div className='flex gap-10'>
-      <Dashboard 
-        updatePage={updatePage} 
-        projects={projects} 
+      <Dashboard
+        updatePage={updatePage}
+        projects={projects}
+        updateSelectedProject={updateSelectedProject}
       />
-      <Main 
+      <Main
         currentPage={currentPage} 
         updatePage={updatePage} 
-        saveProject={saveProject} 
+        saveProject={saveProject}
+        currentProject={typeof selectedPage === 'number' ? projects[selectedPage] : null}
       />
     </div>
   );
