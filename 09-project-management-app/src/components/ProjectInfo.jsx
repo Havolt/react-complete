@@ -1,6 +1,13 @@
-import React from 'react'
+import { useRef } from 'react'
 
-function Project({currentProject}) {
+function Project({currentProject, updateCurrentProject}) {
+
+  const taskRef = useRef();
+
+  const handleAddTask = () => {
+    const updatedProject = {...currentProject, tasks: [...currentProject.tasks, taskRef.current.value]}
+    updateCurrentProject(updatedProject);
+  }
 
   return (
     <div>
@@ -13,7 +20,8 @@ function Project({currentProject}) {
       <hr />
       <h2>Tasks</h2>
       <div>
-        <input type="text" name="" id="" />
+        <input type="text" ref={taskRef}/>
+        <button onClick={handleAddTask}>Add Task</button>
       </div>
       <div>
         <ul>

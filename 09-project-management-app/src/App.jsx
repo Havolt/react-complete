@@ -20,7 +20,7 @@ function App() {
 
   const updatePage = (page) => {
     if(PAGE_TYPES[page]) {
-      setCurrentPage(page);
+      setCurrentPage(page)
     }
   }
 
@@ -32,6 +32,14 @@ function App() {
     setProjects((oldProjects) => [...oldProjects, newProject]);
   }
 
+  const updateCurrentProject = (updatedProject) => {
+    setProjects(prevState => {
+      const oldState = [...prevState]
+      oldState[selectedPage] = updatedProject
+      return oldState;
+    })
+  }
+
   return (
     <div className='flex gap-10'>
       <Dashboard
@@ -41,9 +49,10 @@ function App() {
       />
       <Main
         currentPage={currentPage} 
-        updatePage={updatePage} 
+        updatePage={updatePage}
         saveProject={saveProject}
         currentProject={typeof selectedPage === 'number' ? projects[selectedPage] : null}
+        updateCurrentProject={updateCurrentProject}
       />
     </div>
   );
