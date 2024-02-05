@@ -16,7 +16,7 @@ function App() {
 
   const [projects, setProjects] = useState([TEST_PROJECT])
   const [currentPage, setCurrentPage] = useState(PAGE_TYPES.DEFAULT)
-  const [selectedPage, setSelectedPage] = useState(null)
+  const [selectedProject, setSelectedProject] = useState(null)
 
   const updatePage = (page) => {
     if(PAGE_TYPES[page]) {
@@ -25,7 +25,7 @@ function App() {
   }
 
   const updateSelectedProject = (position) => {
-    setSelectedPage(position)
+    setSelectedProject(position)
   }
 
   const saveProject = (newProject) => {
@@ -35,7 +35,7 @@ function App() {
   const updateCurrentProject = (updatedProject) => {
     setProjects(prevState => {
       const oldState = [...prevState]
-      oldState[selectedPage] = updatedProject
+      oldState[selectedProject] = updatedProject
       return oldState;
     })
   }
@@ -51,7 +51,7 @@ function App() {
         currentPage={currentPage} 
         updatePage={updatePage}
         saveProject={saveProject}
-        currentProject={typeof selectedPage === 'number' ? projects[selectedPage] : null}
+        currentProject={typeof selectedProject === 'number' ? projects[selectedProject] : null}
         updateCurrentProject={updateCurrentProject}
       />
     </div>
