@@ -41,20 +41,20 @@ function App() {
   }
 
   return (
-    <div className='flex gap-10'>
-      <Dashboard
-        updatePage={updatePage}
-        projects={projects}
-        updateSelectedProject={updateSelectedProject}
-      />
-      <Main
-        currentPage={currentPage} 
-        updatePage={updatePage}
-        saveProject={saveProject}
-        currentProject={typeof selectedProject === 'number' ? projects[selectedProject] : null}
-        updateCurrentProject={updateCurrentProject}
-      />
-    </div>
+      <div className='flex gap-10 min-h-screen mt-12'>
+        <Dashboard
+          updatePage={updatePage}
+          projects={projects}
+          updateSelectedProject={updateSelectedProject}
+        />
+        <Main
+          currentPage={currentPage} 
+          updatePage={updatePage}
+          saveProject={saveProject}
+          currentProject={typeof selectedProject === 'number' ? projects[selectedProject] : null}
+          updateCurrentProject={updateCurrentProject}
+        />
+      </div>
   );
 }
 

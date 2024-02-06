@@ -14,8 +14,8 @@ function Dashboard({ projects, updatePage, updateSelectedProject }) {
   }
 
   return (
-    <aside>
-        <div>YOUR PROJECTS</div>
+    <aside className="w-48 bg-black text-white rounded-tr-lg p-4">
+        <div className="font-bold">YOUR PROJECTS</div>
         <button type="button" onClick={handleAddProject}>+ Add Project</button>
         <ul>
             { projects.map((project, index) => <li key={project.title}>
