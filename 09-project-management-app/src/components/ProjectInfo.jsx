@@ -10,18 +10,20 @@ function Project({currentProject, updateCurrentProject}) {
   }
 
   const clearTask = (index) => {
-    console.log({index})
-    console.log(currentProject.tasks)
-
     const clonedTasks = [...currentProject.tasks];
     clonedTasks.splice(index, 1);
-
-    console.log(clonedTasks)
 
     const updatedProject = {...currentProject, tasks: clonedTasks}
 
     updateCurrentProject(updatedProject);
   }
+
+  const monthsShort = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+
+  const dateFull = new Date(currentProject.date);
+  const dayOfMonth = dateFull.getDate();
+  const month = dateFull.getMonth();
+  const year = dateFull.getFullYear();
 
   const taskElements = currentProject.tasks.length > 0 ? 
     currentProject.tasks.map((task, index) => (
@@ -36,8 +38,8 @@ function Project({currentProject, updateCurrentProject}) {
         <h1>{currentProject.title}</h1>
         <button>Delete</button>
       </div>
-      <div>{currentProject.date}</div>
-      <div>{currentProject.description}</div>
+      <div>{}</div>
+      <div>{`${dayOfMonth} ${monthsShort[month]}, ${year}`}</div>
       <hr />
       <h2>Tasks</h2>
       <div>

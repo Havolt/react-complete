@@ -20,7 +20,7 @@ function CreateProject({updatePage, saveProject}) {
     saveProject({
       title: titleRef.current.value,
       description: descriptionRef.current.value,
-      data: dateRef.current.value,
+      date: dateRef.current.value,
       tasks: [],
     })
   }

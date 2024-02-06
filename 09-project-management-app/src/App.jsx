@@ -8,7 +8,7 @@ import { PAGE_TYPES } from './utils/constants'
 const TEST_PROJECT = {
   title: 'Learning React',
   description: 'Learn React from the ground up.\n Start with the basics. Finish with advanced knowledge.',
-  data: '2024-02-17T22:29',
+  date: '2024-02-17T22:29',
   tasks: ['Learn the basics', 'Learn advanced concepts']
 }
 
