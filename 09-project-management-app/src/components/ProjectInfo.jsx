@@ -9,6 +9,27 @@ function Project({currentProject, updateCurrentProject}) {
     updateCurrentProject(updatedProject);
   }
 
+  const clearTask = (index) => {
+    console.log({index})
+    console.log(currentProject.tasks)
+
+    const clonedTasks = [...currentProject.tasks];
+    clonedTasks.splice(index, 1);
+
+    console.log(clonedTasks)
+
+    const updatedProject = {...currentProject, tasks: clonedTasks}
+
+    updateCurrentProject(updatedProject);
+  }
+
+  const taskElements = currentProject.tasks.length > 0 ? 
+    currentProject.tasks.map((task, index) => (
+      <li className="flex gap-20" key={task}>
+        <span>{task}</ span>
+        <button onClick={() => clearTask(index)}>Clear</button>
+      </li>)) : null;
+
   return (
     <div>
       <div>
@@ -25,7 +46,7 @@ function Project({currentProject, updateCurrentProject}) {
       </div>
       <div>
         <ul>
-          { currentProject.tasks.length > 0 ? currentProject.tasks.map(task => <li key={task}>{task}</li>): null}
+          { taskElements }
         </ul>
       </div>
     </div>
