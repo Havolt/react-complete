@@ -1,6 +1,4 @@
 import { useRef } from 'react'
-
-
 import { PAGE_TYPES } from '../utils/constants';
 
 function CreateProject({updatePage, saveProject}) {
