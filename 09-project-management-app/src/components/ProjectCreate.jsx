@@ -25,8 +25,10 @@ function CreateProject({updatePage, saveProject}) {
 
   return (
     <form onSubmit={handleSubmit} className='flex flex-col'>
-      <button onClick={handleCancel}>Cancel</button>
-      <button type="submit">Save</button>
+      <div className="flex gap-2 justify-end mr-2">
+        <button className="" onClick={handleCancel}>Cancel</button>
+        <button className="bg-black text-white p-1 rounded-md" type="submit">Save</button>
+      </div>
 
       <label htmlFor="title">Title</label>
       <input type="text" name="title" id="title" ref={titleRef} />
