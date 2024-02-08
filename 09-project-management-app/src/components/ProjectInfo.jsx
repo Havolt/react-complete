@@ -27,27 +27,25 @@ function Project({currentProject, updateCurrentProject}) {
 
   const taskElements = currentProject.tasks.length > 0 ? 
     currentProject.tasks.map((task, index) => (
-      <li className="flex gap-20" key={task}>
+      <li className="flex gap-20 justify-between" key={task}>
         <span>{task}</ span>
         <button onClick={() => clearTask(index)}>Clear</button>
       </li>)) : null;
 
   return (
-    <div>
-      <div>
-        <h1>{currentProject.title}</h1>
+    <div className="max-w-3xl">
+      <div className="flex justify-between">
+        <h1 className="text-2xl">{currentProject.title}</h1>
         <button>Delete</button>
       </div>
-      <div>{}</div>
-      <div>{`${dayOfMonth} ${monthsShort[month]}, ${year}`}</div>
-      <hr />
-      <h2>Tasks</h2>
-      <div>
-        <input type="text" ref={taskRef}/>
+      <div className="mb-2">{`${dayOfMonth} ${monthsShort[month]}, ${year}`}</div>
+      <h2 className="text-xl border-t-4 mt-2 mb-2">Tasks</h2>
+      <div className="mb-4 flex gap-4">
+        <input className="bg-gray-200" type="text" ref={taskRef}/>
         <button onClick={handleAddTask}>Add Task</button>
       </div>
-      <div>
-        <ul>
+      <div className="w-full bg-gray-200">
+        <ul className="p-2">
           { taskElements }
         </ul>
       </div>
