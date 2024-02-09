@@ -1,6 +1,6 @@
 import { useRef } from 'react'
 
-function Project({currentProject, updateCurrentProject}) {
+function Project({currentProject, updateCurrentProject, deleteCurrentProject}) {
 
   const taskRef = useRef();
 
@@ -38,7 +38,7 @@ function Project({currentProject, updateCurrentProject}) {
     <div className="max-w-3xl">
       <div className="flex justify-between">
         <h1 className="text-2xl">{currentProject.title}</h1>
-        <button>Delete</button>
+        <button onClick={deleteCurrentProject}>Delete</button>
       </div>
       <div className="mb-2">{`${dayOfMonth} ${monthsShort[month]}, ${year}`}</div>
       <h2 className="text-xl border-t-4 mt-2 mb-2">Tasks</h2>

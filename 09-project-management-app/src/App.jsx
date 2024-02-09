@@ -29,7 +29,7 @@ function App() {
   }
 
   const saveProject = (newProject) => {
-    setProjects((oldProjects) => [...oldProjects, newProject]);
+    setProjects((oldProjects) => [...oldProjects, newProject])
   }
 
   const updateCurrentProject = (updatedProject) => {
@@ -38,6 +38,15 @@ function App() {
       oldState[selectedProject] = updatedProject
       return oldState;
     })
+  }
+
+  const deleteCurrentProject = () => {
+    updatePage(PAGE_TYPES.DEFAULT)
+    setProjects(prevState => {
+      const currentProjects = [...prevState]
+      currentProjects.splice(currentPage, 1)
+      return currentProjects
+    });
   }
 
   return (
@@ -53,6 +62,7 @@ function App() {
           saveProject={saveProject}
           currentProject={typeof selectedProject === 'number' ? projects[selectedProject] : null}
           updateCurrentProject={updateCurrentProject}
+          deleteCurrentProject={deleteCurrentProject}
         />
       </div>
   );

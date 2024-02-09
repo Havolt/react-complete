@@ -24,7 +24,7 @@ function CreateProject({updatePage, saveProject}) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className='flex flex-col max-w-3xl'>
+    <form onSubmit={handleSubmit} className='flex flex-col max-w-3xl mt-6'>
       <div className="flex gap-2 justify-end">
         <button className="" onClick={handleCancel}>Cancel</button>
         <button className="bg-black text-white p-1 rounded-md" type="submit">Save</button>
@@ -34,7 +34,7 @@ function CreateProject({updatePage, saveProject}) {
       <input className="bg-gray-200" type="text" name="title" id="title" ref={titleRef} />
 
       <label className="font-bold" htmlFor="description">DESCRIPTION</label>
-      <textarea className="bg-gray-200" name="description" id="description" cols="30" rows="5" ref={descriptionRef}></textarea>
+      <textarea className="bg-gray-200 resize-none" name="description" id="description" cols="30" rows="5" ref={descriptionRef}></textarea>
 
       <label className="font-bold" htmlFor="due-date">DUE DATE</label>
       <input className="bg-gray-200" type="datetime-local" name="due-date" ref={dateRef} />
