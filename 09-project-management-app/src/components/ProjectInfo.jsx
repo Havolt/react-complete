@@ -4,9 +4,11 @@ function Project({currentProject, updateCurrentProject}) {
 
   const taskRef = useRef();
 
-  const handleAddTask = () => {
+  const handleAddTask = (ev) => {
+    if(ev.key && ev.key !== 'Enter') return;
     const updatedProject = {...currentProject, tasks: [...currentProject.tasks, taskRef.current.value]}
     updateCurrentProject(updatedProject);
+    taskRef.current.value = '';
   }
 
   const clearTask = (index) => {
@@ -41,7 +43,7 @@ function Project({currentProject, updateCurrentProject}) {
       <div className="mb-2">{`${dayOfMonth} ${monthsShort[month]}, ${year}`}</div>
       <h2 className="text-xl border-t-4 mt-2 mb-2">Tasks</h2>
       <div className="mb-4 flex gap-4">
-        <input className="bg-gray-200" type="text" ref={taskRef}/>
+        <input onKeyDown={handleAddTask} className="bg-gray-200" type="text" ref={taskRef}/>
         <button onClick={handleAddTask}>Add Task</button>
       </div>
       <div className="w-full bg-gray-200">
