@@ -13,7 +13,8 @@ function CreateProject({updatePage, saveProject}) {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    console.log(dateRef.current.value);
+
+    if(titleRef.current.value < 1 || dateRef.current.value < 1) return;
 
     saveProject({
       title: titleRef.current.value,
@@ -21,6 +22,10 @@ function CreateProject({updatePage, saveProject}) {
       date: dateRef.current.value,
       tasks: [],
     })
+
+    titleRef.current.value = ''
+    descriptionRef.current.value =''
+    dateRef.current.value = ''
   }
 
   return (
