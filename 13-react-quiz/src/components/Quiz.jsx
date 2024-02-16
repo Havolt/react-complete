@@ -1,14 +1,15 @@
-import React from 'react'
+import { useState } from 'react'
 import Question from './Question'
-import Answers from './Answers'
 import Summary from './Summary'
+import QUESTIONS from '../util/questions'
 
 function Quiz() {
 
+  const [currentQuestion, setCurrentQuestion] = useState(null)
+
   return (
     <div>
-      <Question />
-      <Answers />
+      { currentQuestion !== null && <Question currentQ={QUESTIONS[currentQuestion]} /> }
       <Summary />
     </div>
   )

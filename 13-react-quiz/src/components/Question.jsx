@@ -1,8 +1,13 @@
 import React from 'react'
+import Answer from './Answer'
 
-function Question() {
+// currentQ: { id = string; text = string; answers = string[] }
+function Question({currentQ}) {
   return (
-    <div>Question</div>
+    <div>
+      <h2 id="question">{ currentQ.text }</h2>
+      <Answer />
+    </div>
   )
 }
 
