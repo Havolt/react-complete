@@ -1,8 +1,8 @@
 import React from 'react'
 
-function Answer() {
+function Answer({answerText}) {
   return (
-    <div>Answer</div>
+    <div>{answerText}</div>
   )
 }
 

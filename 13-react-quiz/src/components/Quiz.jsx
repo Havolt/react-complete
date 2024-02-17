@@ -21,7 +21,7 @@ function Quiz() {
   return (
     <div>
       { currentQuestion !== null ? 
-        <Question currentQ={QUESTIONS[currentQuestion]} /> : 
+        <Question currentQ={QUESTIONS[currentQuestion]} onClick={moveToNextQuestion} /> : 
         <button onClick={startQuiz}>Start Quiz</button> }
       { quizOver && <Summary /> }
     </div>
