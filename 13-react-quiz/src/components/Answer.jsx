@@ -8,7 +8,7 @@ function Answer({answerText, updateUserAnswers, position}) {
 
   return (
     <div className="answer">
-      <button onClick={ handleSelectAnswer}>{answerText}</button>
+      <button onClick={ handleSelectAnswer }>{ answerText }</button>
     </div>
   )
 }

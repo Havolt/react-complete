@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import Question from './Question'
 import Summary from './Summary'
-import QUESTIONS from '../util/questions'
+import QUESTIONS from '../util/questions' // { id: 'q1', text: 'question text', answers: ['q', 'q', 'q', 'q'],}
 
 function Quiz() {
 
@@ -27,11 +27,13 @@ function Quiz() {
   }
 
   return (
-    <div id="quiz">
-      { currentQuestion !== null && !quizOver &&  <Question currentQ={QUESTIONS[currentQuestion]} updateUserAnswers={updateUserAnswers} /> }
-      { currentQuestion === null && !quizOver && <button onClick={startQuiz}>Start Quiz</button> }
-      { quizOver && <Summary /> }
-    </div>
+    <>
+      { !quizOver && <div id="quiz">
+        { currentQuestion !== null && !quizOver &&  <Question currentQ={QUESTIONS[currentQuestion]} updateUserAnswers={updateUserAnswers} /> }
+        { currentQuestion === null && !quizOver && <button onClick={startQuiz}>Start Quiz</button> }
+      </div> }
+      { quizOver && <Summary userAnswers={userAnswers} QUESTIONS={QUESTIONS} /> }
+    </>
   )
 }
 
