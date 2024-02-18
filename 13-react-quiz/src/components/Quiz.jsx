@@ -14,9 +14,11 @@ function Quiz() {
   }
 
   const moveToNextQuestion = () => {
-    setCurrentQuestion(prevState => {
-      return prevState + 1 < QUESTIONS.length ? prevState + 1 : prevState
-    })
+    if(currentQuestion === QUESTIONS.length-1) {
+      setQuizOver(true)
+      return
+    }
+    setCurrentQuestion(prevState => prevState + 1)
   }
 
   const updateUserAnswers = (latestAnswer) => {
@@ -26,9 +28,8 @@ function Quiz() {
 
   return (
     <div id="quiz">
-      { currentQuestion !== null ? 
-        <Question currentQ={QUESTIONS[currentQuestion]} updateUserAnswers={updateUserAnswers} /> : 
-        <button onClick={startQuiz}>Start Quiz</button> }
+      { currentQuestion !== null && !quizOver &&  <Question currentQ={QUESTIONS[currentQuestion]} updateUserAnswers={updateUserAnswers} /> }
+      { currentQuestion === null && !quizOver && <button onClick={startQuiz}>Start Quiz</button> }
       { quizOver && <Summary /> }
     </div>
   )
