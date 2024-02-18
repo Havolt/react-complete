@@ -6,6 +6,7 @@ import QUESTIONS from '../util/questions'
 function Quiz() {
 
   const [currentQuestion, setCurrentQuestion] = useState(null)
+  const [userAnswers, setUserAnswers] = useState([])
   const [quizOver, setQuizOver] = useState(false)
 
   const startQuiz = () => {
@@ -14,14 +15,19 @@ function Quiz() {
 
   const moveToNextQuestion = () => {
     setCurrentQuestion(prevState => {
-      return prevState + 1 < QUESTIONS.length ? prevState + 1 : prevState;
+      return prevState + 1 < QUESTIONS.length ? prevState + 1 : prevState
     })
   }
 
+  const updateUserAnswers = (latestAnswer) => {
+    setUserAnswers(previousAnswers => [...previousAnswers, latestAnswer])
+    moveToNextQuestion()
+  }
+
   return (
-    <div>
+    <div id="quiz">
       { currentQuestion !== null ? 
-        <Question currentQ={QUESTIONS[currentQuestion]} onClick={moveToNextQuestion} /> : 
+        <Question currentQ={QUESTIONS[currentQuestion]} updateUserAnswers={updateUserAnswers} /> : 
         <button onClick={startQuiz}>Start Quiz</button> }
       { quizOver && <Summary /> }
     </div>

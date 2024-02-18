@@ -1,8 +1,15 @@
 import React from 'react'
 
-function Answer({answerText}) {
+function Answer({answerText, updateUserAnswers, position}) {
+
+  const handleSelectAnswer = () => {
+    updateUserAnswers(position)
+  }
+
   return (
-    <div>{answerText}</div>
+    <div className="answer">
+      <button onClick={ handleSelectAnswer}>{answerText}</button>
+    </div>
   )
 }
 
