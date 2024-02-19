@@ -21,6 +21,7 @@ function Summary({ userAnswers, QUESTIONS }) {
     <div id="summary">
       <img src={QuizComplete} alt="Quiz Complete Trophy" />
       <h2>Quiz Completed!</h2>
+      <hr />
 
       <ol>
         { summaryQuestions }
