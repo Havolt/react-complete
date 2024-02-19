@@ -1,6 +1,6 @@
 import React from 'react'
 
-function SummaryQuestion({questionText, userAnswer, isCorrect}) {
+function SummaryQuestion({questionText, userAnswer, isCorrect, index}) {
 
   const answerClasses = () => {
     let extraClass;
@@ -16,10 +16,11 @@ function SummaryQuestion({questionText, userAnswer, isCorrect}) {
   }
 
   return (
-    <div>
+    <li>
+        <h3>{index}</h3>
         <div className="question">{ questionText }</div>
         <div className={ answerClasses() }>{userAnswer}</div>
-    </div>
+    </li>
   )
 }
 
