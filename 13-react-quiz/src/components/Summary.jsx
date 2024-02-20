@@ -1,8 +1,15 @@
 import React from 'react'
 import SummaryQuestion from './SummaryQuestion'
+import SummaryPercent from './SummaryPercent'
 import QuizComplete from '../assets/quiz-complete.png'
 
-function Summary({ userAnswers, QUESTIONS }) {
+const RESULT_TEXT = {
+  SKIPPED: 'SKIPPED',
+  CORRECT: 'ANSWERED CORRECTLY',
+  INCORRECT: 'ANSWERED INCORRECTLY',
+}
+
+function Summary({ userAnswers, userResults, QUESTIONS }) {
 
   // Map through all the questions and answers and show results
   const summaryQuestions = userAnswers.map(
@@ -22,6 +29,12 @@ function Summary({ userAnswers, QUESTIONS }) {
       <img src={QuizComplete} alt="Quiz Complete Trophy" />
       <h2>Quiz Completed!</h2>
       <hr />
+
+      <div>
+        <SummaryPercent resultText={RESULT_TEXT.SKIPPED} />
+        <SummaryPercent resultText={RESULT_TEXT.CORRECT} />
+        <SummaryPercent resultText={RESULT_TEXT.INCORRECT} />
+      </div>
 
       <ol>
         { summaryQuestions }

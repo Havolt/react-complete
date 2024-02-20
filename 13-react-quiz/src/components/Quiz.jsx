@@ -7,6 +7,7 @@ function Quiz() {
 
   const [currentQuestion, setCurrentQuestion] = useState(null)
   const [userAnswers, setUserAnswers] = useState([])
+  const [userResults, setUserResults] = useState({skipped: null, correct: null, incorrect: null})
   const [quizOver, setQuizOver] = useState(false)
 
   const startQuiz = () => {
@@ -32,7 +33,7 @@ function Quiz() {
         { currentQuestion !== null && !quizOver &&  <Question currentQ={QUESTIONS[currentQuestion]} updateUserAnswers={updateUserAnswers} /> }
         { currentQuestion === null && !quizOver && <button onClick={startQuiz}>Start Quiz</button> }
       </div> }
-      { quizOver && <Summary userAnswers={userAnswers} QUESTIONS={QUESTIONS} /> }
+      { quizOver && <Summary userAnswers={userAnswers} QUESTIONS={QUESTIONS} userResults={userResults} /> }
     </>
   )
 }
