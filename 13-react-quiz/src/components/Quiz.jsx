@@ -16,6 +16,7 @@ function Quiz() {
 
   const moveToNextQuestion = () => {
     if(currentQuestion === QUESTIONS.length-1) {
+      // calculateSummary();
       setQuizOver(true)
       return
     }
@@ -25,6 +26,35 @@ function Quiz() {
   const updateUserAnswers = (latestAnswer) => {
     setUserAnswers(previousAnswers => [...previousAnswers, latestAnswer])
     moveToNextQuestion()
+  }
+
+  const calculateSummary = () => {
+    const totalQuestions = QUESTIONS.length;
+    let questionsSkipped = 0;
+    let questionsCorrect = 0;
+    let questionsIncorrect = 0;
+
+    userAnswers.forEach(answer => {
+      if(answer === null) {
+        questionsSkipped++;
+      } else if (answer === 0) {
+        questionsCorrect++;
+      } else {
+        questionsIncorrect++;
+      }
+    })
+
+    setUserResults(prev => {
+      return {
+        skipped: questionsSkipped !== 0 ? Math.floor((questionsSkipped / totalQuestions) * 100) : 0,
+        correct: questionsCorrect !== 0 ? Math.floor((questionsCorrect / totalQuestions) * 100) : 0,
+        incorrect: questionsIncorrect !== 0 ? Math.floor((questionsIncorrect / totalQuestions) * 100) : 0,
+      }
+    })
+  }
+
+  if(quizOver && userAnswers.length === QUESTIONS.length && userResults.correct === null) {
+    calculateSummary();
   }
 
   return (

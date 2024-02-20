@@ -30,9 +30,9 @@ function Summary({ userAnswers, userResults, QUESTIONS }) {
       <h2>Quiz Completed!</h2>
 
       <div id="summary-stats">
-        <SummaryPercent resultText={RESULT_TEXT.SKIPPED} resultPercent={10} />
-        <SummaryPercent resultText={RESULT_TEXT.CORRECT} resultPercent={20} />
-        <SummaryPercent resultText={RESULT_TEXT.INCORRECT} resultPercent={30} />
+        <SummaryPercent resultText={RESULT_TEXT.SKIPPED} resultPercent={userResults.skipped} />
+        <SummaryPercent resultText={RESULT_TEXT.CORRECT} resultPercent={userResults.correct} />
+        <SummaryPercent resultText={RESULT_TEXT.INCORRECT} resultPercent={userResults.incorrect} />
       </div>
 
       <ol>
