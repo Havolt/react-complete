@@ -28,12 +28,11 @@ function Summary({ userAnswers, userResults, QUESTIONS }) {
     <div id="summary">
       <img src={QuizComplete} alt="Quiz Complete Trophy" />
       <h2>Quiz Completed!</h2>
-      <hr />
 
-      <div>
-        <SummaryPercent resultText={RESULT_TEXT.SKIPPED} />
-        <SummaryPercent resultText={RESULT_TEXT.CORRECT} />
-        <SummaryPercent resultText={RESULT_TEXT.INCORRECT} />
+      <div id="summary-stats">
+        <SummaryPercent resultText={RESULT_TEXT.SKIPPED} resultPercent={10} />
+        <SummaryPercent resultText={RESULT_TEXT.CORRECT} resultPercent={20} />
+        <SummaryPercent resultText={RESULT_TEXT.INCORRECT} resultPercent={30} />
       </div>
 
       <ol>

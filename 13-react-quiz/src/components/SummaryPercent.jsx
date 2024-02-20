@@ -1,8 +1,11 @@
 import React from 'react'
 
-function SummaryPercent({resultText}) {
+function SummaryPercent({resultText, resultPercent}) {
   return (
-    <div>{resultText}</div>
+    <div>
+        <p className="number">{resultPercent}%</p>
+        <p className="text">{resultText}</p>
+    </div>
   )
 }
 
