@@ -10,24 +10,33 @@ function Question({currentQ, updateUserAnswers}) {
   const [timeRemaining, setTimeRemaining] = useState(0)
   const [timePercent, setTimePercent] = useState(100)
 
+  let timeoutID;
+
   useEffect(() => {
-    const timeoutID = window.setTimeout(() => {
+    timeoutID = window.setTimeout(() => {
       console.log(timeRemaining)
       if(timeRemaining < MAX_TIME) {
         setTimeRemaining(prevTime => prevTime + 50)
         setTimePercent((prevPercent) => prevPercent - 1 )
-        
       } else {
-        window.clearTimeout(timeoutID )
-        setTimeRemaining(0)
-        setTimePercent(100)
+        resetTimers();
         updateUserAnswers(null)
       }
-      
     }, TIME_PERCENT);
 
     return () => window.clearTimeout(timeoutID )
   }, [timeRemaining]);
+
+  const submitAnswer = (position) => {
+    resetTimers();
+    updateUserAnswers(position);
+  }
+
+  const resetTimers = () => {
+    window.clearTimeout(timeoutID)
+    setTimeRemaining(0)
+    setTimePercent(100)
+  }
   
 
   return (
@@ -36,7 +45,7 @@ function Question({currentQ, updateUserAnswers}) {
       <h2>{ currentQ.text }</h2>
 
       <div id="answers">
-        { currentQ.answers.map((answer, ind) => <Answer key={answer} answerText={answer} updateUserAnswers={updateUserAnswers} position={ind}  />) }
+        { currentQ.answers.map((answer, ind) => <Answer key={answer} answerText={answer} updateUserAnswers={submitAnswer} position={ind}  />) }
       </div>
       
     </div>
