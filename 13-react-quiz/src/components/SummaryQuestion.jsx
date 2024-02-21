@@ -19,7 +19,7 @@ function SummaryQuestion({questionText, userAnswer, isCorrect, index}) {
     <li>
         <h3>{index}</h3>
         <div className="question">{ questionText }</div>
-        <div className={ answerClasses() }>{userAnswer}</div>
+        <div className={ answerClasses() }>{userAnswer || 'Unanswered'}</div>
     </li>
   )
 }
