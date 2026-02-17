@@ -1,4 +1,4 @@
-import React from "react";
+import FoodShopItem from "../FoodShopItem";
 
 function FoodShop() {
   return <div>FoodShop</div>;
