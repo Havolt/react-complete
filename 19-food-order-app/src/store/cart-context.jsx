@@ -7,6 +7,7 @@ import { createContext, useState } from "react";
 // that consume the context.
 
 const CART_SKELETON = {
+  meals: [],
   items: [],
   totalAmount: 0,
   addItemToCart: (item) => {},
@@ -18,6 +19,7 @@ export const CartContext = createContext(CART_SKELETON);
 
 // Create the CartProvider component
 export const CartProvider = ({ children }) => {
+  const [meals, setMeals] = useState([]);
   const [cartItems, setCartItems] = useState([]);
   const [totalAmount, setTotalAmount] = useState(0);
 
@@ -26,10 +28,16 @@ export const CartProvider = ({ children }) => {
     setTotalAmount((prevAmount) => prevAmount + item.price);
   };
 
+  const updateMeals = (meals) => {
+    setMeals(meals);
+  };
+
   const cart = {
+    meals,
     items: cartItems,
     totalAmount,
     addItemToCart,
+    updateMeals,
   };
 
   return <CartContext.Provider value={cart}>{children}</CartContext.Provider>;
